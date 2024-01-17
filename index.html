@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+    <link rel="stylesheet" href="/style.css">
+    <title>Splide Testimonials</title>
+</head>
+<body>
+    <header>
+        <h1>TESTIMONIALS THAT MEAN THE WORLD TO US</h1>
+    </header>
+   <main class="container">
+    
+        <section class="text__section" >
+            <p id="text__description">Tried Mapro's Kakhra for the very first time, and I had to stop my kids from munching on them because they are too delicious! This is now without a doubt our go-to evening healthy snack.</p>
+            <span id="text__name">Kirti Menon</span>
+            <span id="text__spl">Mother of 2</span>
+        </section>
+        <section class="section slider__section">
+            <div class="container slider__wrapper">
+                <div class="slider__column splide">
+                    <div class="splide__track">
+                        <ul class="splide__list">
+                            <li class="splide__slide"><img src="https://www.mapro.com/cdn/shop/files/Kirti_Menon.png?v=1666959020" alt="Slider"></li>
+                            <li class="splide__slide"><img src="https://www.mapro.com/cdn/shop/files/654265.jpg?v=1666959598&width=535" alt="Slider"></li>
+                            <li class="splide__slide"><img src="https://www.mapro.com/cdn/shop/files/612.jpg?v=1666959629&width=535" alt="Slider"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+       
+            const splide = new Splide('.splide', {
+                type:'slide',
+                // start:1,
+              fixedWidth: '90%',
+
+                // fixedWidth: '50%',  
+                // heightRatio: 0.5,   
+                gap: 0,             
+                pagination: false,  
+                cover: true,  
+                      
+            }).mount();
+
+              const textSection = document.querySelector('.text__section');
+      splide.on('moved', function (index) {
+               
+                if (index === 0) {
+                    textSection.querySelector('#text__description').innerText = `Tried Mapro's Kakhra for the very first time, and I had to stop my kids from munching on them because they are too delicious! This is now without a doubt our go-to evening healthy snack`;
+                    textSection.querySelector('#text__name').innerText = 'Kirti Menon';
+                    textSection.querySelector('#text__spl').innerText = 'Mother of 2'
+                } else if (index === 1) {
+                     textSection.querySelector('#text__description').innerText = `Love how the company keeps experimenting with new products! Range of Mazaana chocolates are great conversation starters and definitely the star of every party.`;
+                    textSection.querySelector('#text__name').innerText = 'Manoj Mundhra';
+                     textSection.querySelector('#text__spl').innerText = 'Product Manager'
+                } else if (index === 2) {
+                    textSection.querySelector('#text__description').innerText = `Mazaana is my favourite of all Mapro products. Packaging is superb. The taste of it is so good that I can never stop at just one chocolate.`;
+                    textSection.querySelector('#text__name').innerText = 'Jay Mistry';
+                     textSection.querySelector('#text__spl').innerText = 'Founder of Zazzy and Petara'
+                }
+    
+            });
+        
+    </script>
+</body>
+</html>
